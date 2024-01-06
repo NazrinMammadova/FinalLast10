@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+@model Dictionary<string,string>
+
+<footer>
+
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-2 col-1 col-sm-1 col-md-2">
+                <p>© PJA 2023</p>
+            </div>
+            <div class="col-lg-5 col-7 col-sm-7 col-md-6">
+                <ul>
+                    <li><a asp-action="index" asp-controller="ruleregulation">Haqqımızda</a></li>
+                    <li><a asp-action="index" asp-controller="aboutpapajhons" class="mx-1">Qaydalar</a></li>
+                    <li><a asp-action ="index" asp-controller="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-2 col-sm-2 col-md-1">
+                <img src="~/assets/img/@Model["footerimage"]" alt="">
+
+            </div>
+
+            <div class="col-lg-3 col-2 col-sm-2 col-md-3 text-end">
+
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/papajohns.az/">
+                        @Html.Raw(Model["footerfacebook"])
+                    </a>
+                    <a href="https://twitter.com/PapaJohns?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                        @Html.Raw(Model["footertwitter"])
+                    </a>
+                    <a href="https://www.instagram.com/azpapajohns/?hl=en">
+                        @Html.Raw(Model["footerinstagram"])
+                    </a>
+                    <a href="https://www.papajohns.az/az/menu/pizza?utm_source=google-ads&utm_campaign=Papa+Johns+Search&utm_agid=91482714444&utm_term=%2Bpapa%20%2Bjohns&creative=411847000470&device=c&placement=&gad_source=1&gclid=Cj0KCQiAsvWrBhC0ARIsAO4E6f8I2qGeIXEFZ0ePSEtecQPTaEls6TvncNU2YlAjSyBnZQTKndd6jVkaAs8UEALw_wcB">
+                        @Html.Raw(Model["footerphone"])
+                    </a>
+                  
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</footer>

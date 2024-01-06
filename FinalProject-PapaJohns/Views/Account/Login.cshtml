@@ -1,0 +1,52 @@
+﻿@using FinalProject_PapaJohns.ViewModels.Account;
+@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+        <section id="loginform">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-6 col-sm-6 col-md-6 mx-auto ">
+                        <div class="form-container">
+                            <p class="title">Welcome Back <span class="text-danger">PapaJohns!</span></p>
+                    <form class="form" method="post">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                        <input asp-for="UserNameOrEmail" class="input" placeholder="Username or email *">
+                        <span class="text-danger" asp-validation-for="UserNameOrEmail"></span>
+
+                        <div class="passwordinput d-flex align-items-center">
+                            <input asp-for="Password" type="password" class="input border-0" placeholder="Password" id="passwordInput">
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                            <i class="fa-solid fa-eye" onclick="togglePassword(this)"></i>
+                        </div>
+
+                        <div class="custom-checkbox mt-30">
+                            <input asp-for="RememberMe">
+                            <label asp-for="RememberMe"></label>
+                        </div>
+                        <p class="page-link mx-auto">
+                            <a asp-action="ForgetPassword">
+                                <span class="page-link-label ">Forgot Password?</span>
+                            </a>
+                                </p>
+                                <button type="submit" class="form-btn ">Log in</button>
+                            </form>
+                    <a asp-action ="register" asp-controller="Account">
+                        <p class="sign-up-label">
+                            Don't have an account?<span class="sign-up-link ">Sign up</span>
+                        </p>
+                    </a>
+                           
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+
+
+   <script src="~/assets/js/login.js"></script>
+

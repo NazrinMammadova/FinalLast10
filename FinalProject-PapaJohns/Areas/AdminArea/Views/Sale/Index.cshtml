@@ -1,0 +1,80 @@
+﻿@model List<Sale>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Sale table</h4>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>Date</th>
+                                    <th>User</th>
+
+                                    <td>Cvv</td>
+                                    <td>Country</td>
+                                    <td>CardNumber</td>
+                                    <td>CardNameAndSurname</td>
+                                    <td>Address</td>
+                                    <td>City</td>
+                                    <td>Email</td>
+                                    <td>ExpYEAR</td>
+                                    <td>ExpMonth</td>
+
+
+                                    <th>Products</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var sale in Model)
+                                {
+                                    <tr>
+
+
+                                        <td>@sale.Total</td>
+                                        <td>@sale.CreatedAt.ToString("dddd,dd MMMM yyyy")</td>
+                                        <td>@sale.AppUser.UserName</td>
+                                        <td>@sale.Cvv</td>
+                                        <td>@sale.Country</td>
+                                        <td>@sale.CardNumber</td>
+                                        <td>@sale.CardNameAndSurname</td>
+                                        <td>@sale.Address</td>
+                                        <td>@sale.City</td>
+                                        <td>@sale.Email</td>
+                                        <td>@sale.ExpYEAR</td>
+                                        <td>@sale.ExpMonth</td>
+                                    
+                                        <td>
+                                            <ul>
+                                                @foreach (var saleProduct in sale.SaleProducts)
+                                                {
+                                                    <li> Name: @saleProduct.Product.Name Price: @saleProduct.Product.Price</li>
+
+                                                }
+                                            </ul>
+                                        </td>
+
+
+
+                                       
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

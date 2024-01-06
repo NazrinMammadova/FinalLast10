@@ -1,0 +1,64 @@
+﻿@model List<RuleRegulation>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"> RuleRegulation Table</h4>
+                    <a asp-action="create" class="btn btn-outline-success">Create RuleRegulation</a>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>CreatedAt</th>
+                                    <th>AddedBy</th>
+                                    <th>UpdateAt</th>
+                                    <th>DeleteAt</th>
+                                    <th>Settings</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var ruleRegulation in Model)
+                                {
+                                    <tr>
+
+
+
+                                        <td>@ruleRegulation.Name</td>
+                                        <td>@ruleRegulation.Desc</td>
+                                        <td>@ruleRegulation.CreatedAt</td>
+                                        <td>@ruleRegulation.AddedBy</td>
+                                        <td>@ruleRegulation.UpdatedAt</td>
+                                        <td>@ruleRegulation.DeletedAt</td>
+
+
+                                        <td>
+                                            <a asp-action="delete" asp-route-id="@ruleRegulation.Id" class="btn btn-outline-danger">
+                                                <i class="mdi mdi-delete-sweep"></i>
+                                            </a>
+                                            <a asp-action="update" asp-route-id="@ruleRegulation.Id" class="btn btn-outline-warning">
+                                                <i class="mdi mdi-table-edit"></i>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

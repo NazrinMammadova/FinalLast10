@@ -1,0 +1,141 @@
+﻿@using FinalProject_PapaJohns.ViewModels;
+@{
+    ViewData["Title"] = "Index";
+   
+
+}
+
+@model HomeVM
+<section id="homeSlider">
+    <div class="col-lg-12 col-sm-12 col-md-12">
+        <div class="container">
+            <div class="row">
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach (var homeSlider in Model.HomeSliders)
+                        {
+                            <div class="swiper-slide"><a href=""><img src="~/assets/img/@homeSlider.ImageUrl" alt=""></a></div>
+
+
+                        }
+                       
+
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Services">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center fw-bold fs-1">Bizim Servislərimiz</h2>
+            <p class="text-center text-black fw-bold fs-6"> Acmısınız? Hamının sevimlisi Papa John's. Pizza sifaris edin, ünvana çatdıraq.</p>
+            <div class="row g-4 text-center">
+                @foreach (var papaService in Model.PapaServices)
+                {
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        @Html.Raw(papaService.ImageUrl)
+                    <div class="media-body">
+                        <h3 class="heading">
+                            @papaService.Name
+                        </h3>
+                        <p class="fw-light text-black">@papaService.Desc</p>
+                    </div>
+                </div>
+
+                    
+                }
+             
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="pizzaPictures">
+    <div class="">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row g-0">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="row g-0">
+                            @foreach (var pizzaPicture in Model.PizzaPictures)
+                            {
+                                <div class="col-lg-3 col-sm-12 col-md-6 overflow-hidden">
+                                    <img src="~/assets/img/@pizzaPicture.ImageUrl" alt="">
+                                </div>
+
+                            }
+                    
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+<!-- <section id="CreatePizza">
+<div class="container">
+    <div class="row">
+      <div class="createPizza">
+        <div class="col-lg-6 text-end">
+            <img id="CreatePizzaImg" src="~/assets/img/make-your-own-pizza-en.7f668519.webp" alt="">
+<a id="CreatePizzabtn" class="btn btn-succes" href="">MAKE NOW<i class="fa-solid fa-basket-shopping"></i></a>
+        </div>
+    </div>
+    </div>
+</div>
+        </section> -->
+
+
+
+<section id="Earn">
+        <div class="row text-center">
+
+            <div class="col-lg-6 col-md-6 col-sm-6 mx-auto">
+
+                <a href="~/assets/img/@Model.MenuPicture.MenuPhoto" download>
+                    <i class="fa-solid fa-download"></i>  Menyunu Yüklə
+                </a>
+
+            </div>
+        </div>
+
+</section>
+
+
+
+<section id="homeVideo" class="py-5">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <h1>
+                    @Model.SloganPapaJohns.Slogan
+                </h1>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                @Html.Raw(Model.SloganPapaJohns.VideoLink)
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="~/assets/js/index.js"></script>
+<script src="~/assets/js/main.js"></script>

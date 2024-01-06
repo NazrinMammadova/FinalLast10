@@ -1,0 +1,67 @@
+﻿@model List<PapaService>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">PapaService table</h4>
+                    <a asp-action="create" class="btn btn-outline-success">Create PapaService</a>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>CreatedAt</th>
+                                    <th>AddedBy</th>
+                                    <th>UpdateAt</th>
+                                    <th>DeleteAt</th>
+                                    <th>Settings</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var papaService in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                          @papaService.ImageUrl
+                                        </td>
+                                      
+                                        <td>@papaService.Name</td>
+                                        <td>@papaService.Desc</td>
+                                        <td>@papaService.CreatedAt</td>
+                                        <td>@papaService.AddedBy</td>
+                                        <td>@papaService.UpdatedAt</td>
+                                        <td>@papaService.DeletedAt</td>
+
+
+                                        <td>
+                                            <a asp-action="delete" asp-route-id="@papaService.Id" class="btn btn-outline-danger">
+                                                <i class="mdi mdi-delete-sweep"></i>
+                                            </a>
+                                            <a asp-action="update" asp-route-id="@papaService.Id" class="btn btn-outline-warning">
+                                                <i class="mdi mdi-table-edit"></i>
+                                            </a>
+                                       
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

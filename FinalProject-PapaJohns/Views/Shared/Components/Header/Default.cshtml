@@ -1,0 +1,184 @@
+﻿@using FinalProject_PapaJohns.ViewModels;
+﻿@using FinalProject_PapaJohns.Services;
+
+@model Dictionary<string,string>
+@{
+    Layout = null;
+    int basketCount = basketService.GetCount();
+    List<BasketVM> products = basketService.GetBasket();
+
+
+}
+@inject ILayoutService layoutService
+\
+
+
+<header>
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-4 col-sm-2 col-2 col-md-4">
+
+                    <button id="theme-toggle"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+
+                </div>
+                <div class="col-lg-4 col-sm-3 col-3 col-md-3 mt-1">
+
+                    <input type="text" class="myInput input-search" placeholder="Search..">
+
+                    <ul class="myUL header-search">
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-sm-7 col-7 col-md-5 text-end">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Admin"))
+                        {
+
+                            <a asp-area="adminarea" asp-controller="dashboard" asp-action="index">Admin</a>
+                        }
+                        <a asp-action="index" asp-controller="order">
+                            @User.Identity.Name <img id="userphoto" width="45" src="~/assets/img/user.jpg" alt="" />
+                        </a>
+
+
+                        <a asp-controller="account" asp-action="logout">Çıxış</a>
+
+
+
+                    }
+                    else
+                    {
+
+                        <a asp-controller="account" asp-action="register">
+                            Qeydiyyat
+                        </a>
+                        <span class="fw-bold  fs-3">/</span>
+
+                        <a asp-controller="account" asp-action="login">
+                            Giriş
+                        </a>
+
+
+                    }
+
+                    <div class="dropdown" style="float:right;">
+
+                        <button class="dropbtn">
+                            <i class="fa-solid fa-basket-shopping">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <span class="count">@basketCount</span>
+
+                                }
+                                else
+                                {
+                                    <span class="count">0</span>
+
+                                }
+
+                            </i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="mini-cart">
+                                <ul class="cart-items">
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <li>No Products in the cart.</li>
+                                    }
+                                    else if (products.Count == 0)
+                                    {
+                                        <li>No Products in the cart.</li>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var product in products)
+                                        {
+                                            <li class="cart-item">
+                                                <div class="single-cart-item">
+                                                    <img src="~/assets/img/@product.ImageUrl" alt="product">
+                                                    <div class="product-details">
+                                                        <h5 class="product-name">@product.Name</h5>
+                                                        <span class="product-price">Price: @product.Price </span>
+                                                        <span class="product-quantity">Say: @product.BasketCount</span>
+                                                        <a asp-action="delete" asp-controller="basket" asp-route-id="@product.Id"><i class="fa-solid fa-xmark"></i></a>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+
+                                        }
+                                    }
+
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3  col-sm-1 col-md-3">
+                        <a asp-action="index" asp-controller="home">
+                            <img src="~/assets/img/@Model["headerphoto"]" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-9  col-sm-12 col-md-9">
+
+                        <label id="headerdrop" class="popup">
+                            <input type="checkbox">
+                            <div class="burger" tabindex="0">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <nav class="popup-window">
+
+
+                                @foreach (var category in layoutService.GetAllCategories())
+                                {
+
+                                    <a class="text-black" asp-controller="Category" asp-action="index" asp-route-id="@category.Id"><h6>@category.Name</h6></a>
+
+
+                                }
+
+                                <a asp-action="index" asp-controller="shop">SHOP</a>
+
+
+
+                            </nav>
+                        </label>
+
+
+                        <ul>
+                            @foreach (var category in layoutService.GetAllCategories())
+                            {
+
+                                <li><a asp-controller="Category" asp-action="index" asp-route-id="@category.Id">@category.Name</a></li>
+
+
+                            }
+                            <li><a asp-action="index" asp-controller="shop">SHOP</a></li>
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</header>
+

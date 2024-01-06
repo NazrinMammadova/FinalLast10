@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model Dictionary<string,string>
+
+<section id="shertlerqaydalarTabmenu">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12 col-12">
+
+                <div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'firstTab')" id="defaultOpen">
+                        <h5>@Model["BetterPizzaTitle"]</h3>
+                    </button>
+                    <button class="tablinks" onclick="openTab(event, 'secondTab')"><h5>@Model["PapaAzerbaijanTitle"]</h5></button>
+                    <button class="tablinks" onclick="openTab(event, 'thirdTab')">
+                        <h5>
+                            @Model["PapaJohnsTitle"]
+                        </h5>
+                    </button>
+                    <button class="tablinks" onclick="openTab(event, 'fourthTab')">
+                        <h5>
+                            @Model["PapaTalkTitle"]
+                        </h5>
+                    </button>
+                    <button class="tablinks" onclick="openTab(event, 'fifthTab')"><h5>@Model["HistoryTitle"]</h5></button>
+                    <button class="tablinks" onclick="openTab(event, 'sixthTab')">
+                        <h5>
+                            @Model["DeliveryTitle"]
+                        </h5>
+                    </button>
+                    <button class="tablinks" onclick="openTab(event, 'seventhTab')">
+                        <h5>
+                            @Model["Corparative"]
+                            
+                        </h5>
+                    </button>
+
+                </div>
+
+                <div id="firstTab" class="tabcontent">
+                    <h3>
+                        @Model["BetterPizzaTitle"]
+                    </h3>
+                    <img src="/assets/img/@Model["BetterPizzaPicture"]" alt="">
+
+                    <p>
+                        @Model["BetterPizzaDesc"]
+                    </p>
+                </div>
+
+                <div id="secondTab" class="tabcontent">
+                    <h3>
+                        @Model["PapaAzerbaijanTitle"]
+
+                    </h3>
+                    <img src="/assets/img/@Model["PapaAzerbaijanImg"]" alt="">
+
+                    <p>
+                        @Model["PapaAzerbaijanDesc"]
+                    </p>
+                </div>
+
+                <div id="thirdTab" class="tabcontent">
+                    <h3>
+                        @Model["PapaJohnsTitle"]
+                    </h3>
+
+                    <h4> @Model["BetterIngredientsTitle"]</h4>
+
+                        <p>@Model["BetterIngredientsDesc"]</p>
+                       
+
+                        <h4>  @Model["QualityTitle"]</h4>
+
+                            <p>@Model["QualityDesc"]</p>
+
+                            <h4>   @Model["QualityOurResourceTitle"]</h4>
+                    <p>@Model["QualityOurResourceDesc"]</p>
+
+                    <h4> @Model["GetHowTitle"]</h4>
+                    <p>@Model["GetHowDesc"]</p>
+
+
+
+                    <h4>@Model["ResponsTitle"]</h4>
+                    <p>@Model["ResponseDesc"]<p />
+                    <h4>@Model["MoreTitle"]</h4>
+
+                    <p>@Model["MoreDesc"]<p />
+
+                    <h4>@Model["PriortyTitle"]</h4>
+
+                    <p>@Model["PriortyDesc"]<p />
+                    <h4>@Model["OurStyleTitle"]</h4>
+
+                    <p>@Model["OurStyleDesc"]<p />
+                    <h4>@Model["DevelopmentTitle"]</h4>
+                    <p>@Model["DevelopDesc"]<p />
+
+                </div>
+
+
+                <div id="fourthTab" class="tabcontent">
+                    <h3>
+                        @Model["PapaTalkTitle"]
+                    </h3>
+                    <h6>Fikir bildir, 'Bir İllik Pizza' qazan.</h6>
+                    <ol>
+                        <li>@Model["Rule1"]</li>
+                        <li>@Model["Rule2"]</li>
+                        <li>@Model["Rule3"]</li>
+                        <li>@Model["Rule4"]</li>
+                        <li>@Model["Rule5"]</li>
+                        <li>@Model["Rule6"]</li>
+                        <li>@Model["Rule7"]</li>
+                        <li>@Model["Rule8"]</li>
+                        <li>@Model["Rule9"]</li>
+                        <li>@Model["Rule10"]</li>
+                        <li>@Model["Rule11"]</li>
+                        
+                    </ol>
+                </div>
+
+
+                <div id="fifthTab" class="tabcontent">
+                    <h3>@Model["HistoryTitle"]</h3>
+                    <img src="/assets/img/the-mexican.jpg" alt="">
+                    <p class="fw-light">@Model["HistoryDescFirst"]</p>
+                    <p><strong class="fw-bold">30 ildən artıq fəaliyyət....</strong></p>
+                    <ol>
+                        <li class="fw-light my-2">@Html.Raw(Model["History1"])</li>
+                        <li class="fw-light my-2">@Html.Raw(Model["History2"])</li>
+                        <li class="fw-light my-2">@Html.Raw(Model["History3"])</li>
+                       <li class="fw-light my-2">@Html.Raw(Model["History4"])</li>
+                     <li class="fw-light my-2">@Html.Raw(Model["History5"])</li>
+                        <li class="fw-light my-2">@Html.Raw(Model["History6"])</li>
+                        <li class="fw-light my-2">@Html.Raw(Model["History7"])</li>
+                        <li class="fw-light my-2">@Html.Raw(Model["History8"])</li>
+                        <li class="fw-light my-2">@Html.Raw(Model["History9"])</li>
+                    </ol>
+                    <p class="fw-light">
+                        @Model["HistoryDescEnd"]
+                    </p>
+
+                </div>
+
+                <div id="sixthTab" class="tabcontent">
+                    <h3>
+                        @Model["DeliveryTitle"]
+
+                    </h3>
+                    <h6>
+                        Əziz dostlar, sizin diqqətinizə çatdırırıq:
+                    </h6>
+                    <ol>
+                        <li>
+                            @Model["Delivery1"]
+                        </li>
+                        <li>
+                            @Model["Delivery2"]
+                        </li>
+                        <li>
+                            @Model["Delivery3"]
+                        </li>
+                        <li>
+                            @Model["Delivery4"]
+                        </li>
+                        <li>
+                            @Model["Delivery5"]
+                        </li>
+
+                    </ol>
+                    <h6>
+                        Siz  aşağıdakı xəritə üzrə bizim çatdırılma zonası ilə tanış ola bilərsiniz.
+
+
+                    </h6>
+                    @Html.Raw(Model["iframe"])
+                </div>
+                <div id="seventhTab" class="tabcontent">
+                    <h3>
+                        @Model["Corparative"]
+
+
+                    </h3>
+
+                    <p class="fw-light">
+                        @Model["CorparativeDesc"]
+                    </p>
+
+
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/img/@Model["People1"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People2"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People3"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People4"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People5"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People6"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People7"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People8"]" alt=""></div>
+                            <div class="swiper-slide"><img src="assets/img/@Model["People9"]" alt=""></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="assets/js/shertlerqaydalar.js"></script>

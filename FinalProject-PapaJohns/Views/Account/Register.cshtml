@@ -1,0 +1,45 @@
+﻿@using FinalProject_PapaJohns.ViewModels.Account;
+@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+<section id="signInform">
+    <div class="container mx-auto">
+        <div class="row">
+            <div class="form-container py-1">
+                <p class="title">Create <span class="text-danger">PapaJohns</span> Account</p>
+                <form class="form" method="post">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                    <input class="input" asp-for="FirstName" placeholder="First Name">
+                    <span class="text-danger" asp-validation-for="FirstName"></span>
+
+                    <input class="input" asp-for="LastName" placeholder="Last Name">
+                    <span class="text-danger" asp-validation-for="LastName"></span>
+                    <input asp-for="Email" class="input" placeholder="Email Address">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+
+                    <input asp-for="Username" class="input" placeholder="Username">
+                    <span class="text-danger" asp-validation-for="Username"></span>  
+                    
+                    <input asp-for="Password" class="input" placeholder="Password">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+
+                    <input asp-for="RepeatPassword" class="input" placeholder="Confirm Password">
+                    <span class="text-danger" asp-validation-for="RepeatPassword"></span>
+
+                    <button type="submit" class="form-btn">Create account</button>
+                </form>
+
+                <div class="buttons-container">
+                   
+                    <p class="sign-up-label text-center">
+                        <a asp-action="login" asp-controller="account">
+                            Already have an account?<span class="sign-up-link mx-2 fs-5">Sign up</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

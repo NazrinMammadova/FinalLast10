@@ -1,0 +1,105 @@
+﻿@model ContactVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<section class="contact-page pt-20 py-4">
+    <div class="container-fluid custom-container">
+        <div class="row justify-content-between">
+            <div class="col-lg-7  col-md-7 col-sm-9">
+                <div class="contact-form mt-30">
+                    <h4 class="allup-title">Əlaqə Formu</h4>
+                    <form  asp-action="SendMessage" asp-controller="Contact" method="POST" id="contact-form">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6 col-sm-6">
+                                <div class="single-form">
+                                    <input type="text" asp-for="Name" placeholder="Your Name">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 col-sm-6">
+                                <div class="single-form">
+                                    <input type="email" asp-for="Email" placeholder="Your Email">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <div class="single-form">
+                                    <input type="text" asp-for="Subject" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="col-md-12  col-12 col-lg-12 col-sm-12">
+                                <div class="single-form">
+                                    <textarea asp-for="Body" placeholder="Your Message"></textarea>
+                                </div>
+                            </div>
+                            <p class="form-message"></p>
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <div class="single-form">
+                                    <button id="formbtn" type="submit" class="main-btn main-btn-2">Send Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-12 col-sm-12 mt-5">
+                <div class="contact-info mt-30">
+                    <h4 class="title">Bizimlə əlaqə</h4>
+                    <ul class="contact-info-block">
+                        <li>
+                            <div class="single-info">
+                                <div class="info-icon-title">
+                                    <div class="info-icon">
+                                        <i class="icon ion-map"></i>
+                                    </div>
+                                    <h5 class="info-title media-body"><i class="fa-solid fa-location-dot mx-1"></i>Addreslər</h5>
+                                </div>
+                                <ul>
+                                    <li class="fw-light">@Model.Setting["Nizami"]</li>
+                                    <li class="fw-light">@Model.Setting["Sahil"]</li>
+                                    <li class="fw-light">@Model.Setting["Genclik"]</li>
+                                    <li class="fw-light">@Model.Setting["ecemi"]</li>
+                                    <li class="fw-light">@Model.Setting["ParkBulvar"]</li>
+                                    <li class="fw-light">@Model.Setting["Ehmedli"]</li>
+                                    <li class="fw-light">@Model.Setting["28mall"]</li>
+                                    <li class="fw-light">@Model.Setting["genclikmall"]</li>
+                                    <li class="fw-light">@Model.Setting["Bakixanov"]</li>
+                                    <li class="fw-light">@Model.Setting["Sumgayit"]</li>
+                                    <li class="fw-light">@Model.Setting["denizmall"]</li>
+                                    <li class="fw-light">@Model.Setting["insaatcilar"]</li>
+                                    <li class="fw-light">@Model.Setting["Xirdalan"]</li>
+                                    <li class="fw-light">@Model.Setting["Azadliq"]</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="single-info">
+                                <div class="info-icon-title d-flex align-item-center">
+                                    <div class="info-icon">
+                                        <i class="icon ion-ios-telephone-outline"></i>
+                                    </div>
+                                    <h5 class="info-title media-body"><i class="fa-solid fa-phone mx-1"></i> Telefonla Əlaqə:</h5>
+                                </div>
+                                <p class="fw-light">@Model.Setting["ContactPhone"]</p>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="single-info">
+                                <div class="info-icon-title d-flex align-item-center">
+                                    <div class="info-icon">
+                                        <i class="icon ion-ios-email-outline"></i>
+                                    </div>
+                                    <h5 class="info-title media-body"><i class="fa-solid fa-envelope mx-1"></i>Email</h5>
+                                </div>
+                                <p class="fw-light">@Model.Setting["ContactEmail"]</p>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

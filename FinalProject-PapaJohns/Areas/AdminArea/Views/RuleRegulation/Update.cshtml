@@ -1,0 +1,47 @@
+﻿@model UpdateRuleRegulationVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">
+                Update RuleRegulation Form
+            </p>
+            <form class="forms-sample" method="post">
+              
+                <div class="form-group">
+                    <label asp-for="AddedBy"></label>
+                    <input asp-for=AddedBy class="form-control" placeholder="AddedBy">
+                    <span asp-validation-for="AddedBy" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for=Name class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Desc"></label>
+                    <input asp-for=Desc class="form-control" placeholder="Desc">
+                    <span asp-validation-for="Desc" class="text-danger"></span>
+
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary mr-2">update</button>
+                <a asp-action="index" class="btn btn-light">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+@section Script{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+}

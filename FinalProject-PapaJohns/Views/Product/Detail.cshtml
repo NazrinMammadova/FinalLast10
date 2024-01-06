@@ -1,0 +1,50 @@
+﻿@model ProductDetailVM
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<section id="Combos">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="~/assets/img/@Model.Product.ImageUrl" alt="">
+            </div>
+            <div class="col-lg-7">
+                <h1 class="text-black my-4">@Model.Product.Name</h1>
+                <p class="my-4">Qiymət:@Model.Product.Price azn</p>
+                
+                    @if (@Model.Product.Description != null)
+                    {
+                    <p class="my-4">Tərkibi: @Model.Product.Description</p>
+
+
+                    }
+
+
+             
+                <a asp-action="add" asp-controller="basket" asp-route-id="@Model.Product.Id">sebete at</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="producstdetail">
+    <h2 class="text-center">other products</h2>
+    <div class="container ">
+        <div class="row justify-content-center">
+            @foreach (var moreprodutc in Model.RandomProducts)
+            {
+                <div class="col-lg-3 my-3  text-center">
+                    <a asp-action="detail" asp-controller="product" asp-route-id="@moreprodutc.Id">
+                        <img src="~/assets/img/@moreprodutc.ImageUrl" alt="">
+                    </a>
+                    <p>@moreprodutc.Name</p>
+                </div>
+
+            }
+        
+        </div>
+    </div>
+</section>

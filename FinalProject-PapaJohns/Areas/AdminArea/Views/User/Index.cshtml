@@ -1,0 +1,92 @@
+﻿@model List<AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+
+    <form asp-action="index">
+
+        <input type="text" name="search" />
+        <button type="submit">search</button>
+    </form>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">User table</h4>
+                    <a asp-action="create" class="btn btn-outline-success">Create User</a>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>LastName</th>
+                                    <th>UserName</th>
+                                    <th>Email</th>
+                                    <th>IsBlocked</th>
+
+                                    <th>Settings</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var user in Model)
+                                {
+                                    <tr>
+
+
+                                        <td>@user.LastName</td>
+
+                                        <td>@user.UserName</td>
+                                        <td>@user.Email</td>
+                                        <td>@user.IsBlocked</td>
+                                        <td>
+                                            @if (!user.IsBlocked)
+                                            {
+                                                <a asp-action="ChangeStatus" asp-route-id="@user.Id" class="btn btn-danger">
+                                                    DeActive
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="ChangeStatus" asp-route-id="@user.Id" class="btn btn-success">
+                                                    Active
+                                                </a>
+                                            }
+                                        </td>
+
+
+
+                                        <td>
+                                            @if (User.Identity.Name != user.UserName)
+                                            {
+                                                <a asp-action="delete" asp-route-id="@user.Id" class="btn btn-outline-danger">
+                                                    <i class="mdi mdi-delete-sweep"></i>
+                                                </a>
+                                            }
+
+
+                                            <a asp-action="update" asp-route-id="@user.Id" class="btn btn-outline-warning">
+                                                <i class="mdi mdi-table-edit"></i>
+                                            </a>
+                                           
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
